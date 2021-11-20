@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_unity_360/main.dart';
 import 'package:flutter_unity_widget/flutter_unity_widget.dart';
 
-class UnityScreen extends StatefulWidget {
+class UnityScreen extends ConsumerWidget {
   const UnityScreen({Key? key}) : super(key: key);
-
-  @override
-  _UnityScreenState createState() => _UnityScreenState();
-}
-
-class _UnityScreenState extends State<UnityScreen> {
   static final GlobalKey<ScaffoldState> _scaffoldKey =
       GlobalKey<ScaffoldState>();
-  late UnityWidgetController _unityWidgetController;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final unity = ref.watch(unityProvider);
+
     return Scaffold(
       key: _scaffoldKey,
       appBar: AppBar(
@@ -23,14 +20,10 @@ class _UnityScreenState extends State<UnityScreen> {
       body: SafeArea(
         bottom: false,
         child: UnityWidget(
-          onUnityCreated: _onUnityCreated,
+          onUnityCreated: unity.create,
           borderRadius: BorderRadius.circular(8),
         ),
       ),
     );
-  }
-
-  void _onUnityCreated(UnityWidgetController controller) {
-    _unityWidgetController = controller;
   }
 }
