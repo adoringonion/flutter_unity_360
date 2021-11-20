@@ -17,9 +17,6 @@ class _UnityAltScreenState extends State<UnityAltScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
-        appBar: AppBar(
-          title: const Text('Unity Widget'),
-        ),
         body: SafeArea(
           bottom: false,
           child: Stack(children: <Widget>[
@@ -36,10 +33,14 @@ class _UnityAltScreenState extends State<UnityAltScreen> {
                     child: Container(
                         padding: const EdgeInsets.all(8),
                         child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
                               ElevatedButton(
+                                  onPressed: _backMenu, child: Text('戻る')),
+                              SizedBox(width: 20),
+                              ElevatedButton(
                                   onPressed: _play, child: Text("Play")),
+                              SizedBox(width: 20),
                               ElevatedButton(
                                   onPressed: _pause, child: Text("Pause")),
                             ])))),
@@ -57,5 +58,9 @@ class _UnityAltScreenState extends State<UnityAltScreen> {
 
   void _pause() {
     _unityWidgetController.postMessage('VideoPlayer', 'Pause', "");
+  }
+
+  void _backMenu() {
+    Navigator.of(context).pop();
   }
 }
