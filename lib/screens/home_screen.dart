@@ -5,15 +5,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: ElevatedButton(
-          child: const Text('Open Unity'),
-          onPressed: () {
-            Navigator.pushNamed(context, '/unity');
-          },
-        ),
+    return Scaffold(
+        body: Center(
+      child: ElevatedButton(
+        child: const Text('Open Unity'),
+        onPressed: () {
+          Navigator.pushNamed(context, '/unity');
+        },
       ),
-    );
+    ));
   }
 }

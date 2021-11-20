@@ -44,3 +44,8 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+unity/flutter_unity_360/Temp
+android/unityLibrary
+unity/flutter_unity_360/Builds
+unity/flutter_unity_360/Library
+unity/flutter_unity_360/Logs

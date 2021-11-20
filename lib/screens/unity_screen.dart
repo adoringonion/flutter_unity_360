@@ -15,7 +15,16 @@ class _UnityScreenState extends State<UnityScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return UnityWidget(onUnityCreated: _onUnityCreated);
+    return Scaffold(
+      key: _scaffoldKey,
+      body: SafeArea(
+        bottom: false,
+        child: UnityWidget(
+          onUnityCreated: _onUnityCreated,
+          borderRadius: BorderRadius.circular(8),
+        ),
+      ),
+    );
   }
 
   void _onUnityCreated(UnityWidgetController controller) {
