@@ -17,6 +17,9 @@ class _UnityScreenState extends State<UnityScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
+      appBar: AppBar(
+        title: const Text('Unity Widget'),
+      ),
       body: SafeArea(
         bottom: false,
         child: UnityWidget(
